@@ -148,7 +148,7 @@ As with all BST questions, this involves doing recursive functions and also appl
 
 Looking at the constant ```bae2```, we can visualize the BST as such:
 ```
-						[ * ]
+			[ * ]
                         /   \
                      [ + ] [ 100 ]
                      /   \
