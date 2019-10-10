@@ -11,6 +11,7 @@
 3)  Trace out the program and draw out the new list first before drawing. The
     map method causes each element in the list to become the original list. 
     Hence, the final result is 
+
     ```
     list(list(4, 5, 6), list(4, 5, 6), list(4, 5, 6))
     ```
@@ -43,6 +44,7 @@
         }
     }
     ```
+
     Since this will result in ```list ys``` being structually identical. Hence, the only way to do it is to create new pairs from ```list ys``` too so that the final appended list will contains only new pairs.
     
 3) At first glance of this question, I would have used take, drop functions to take the elements till the last element. Then use drop function to drop the last element and append them together. Alternatively, I came up with another solution for this which might be more intuitive for some of you:
@@ -93,9 +95,11 @@ For order of growth (OOG) take note that Ω is always finding the lower bound, s
 2. Similar to question 1, this time the OOG of ```r(n)``` is given to be ```g(n)```. Since ```g(n)``` is being referenced for the two parts, they are true.
 
 3.  For this question, you need to understand the magnitude of each OOG. General rule of thumb is:
+
 	```
      Θ(1) -> Θ(log(n)) -> Θ(n) -> Θ(nlog(n)) -> Θ(n^2) -> Θ(2^n)
     ```
+
     1. Part 1 ask for Θ, which means the OOG **MUST** be equals to the OOG of ```r(n)```, which is false.
 
     2. Part 2 ask for Ω, which means the OOG can be equal or lower to the OOG of ```r(n)```, which is false.
@@ -147,6 +151,7 @@ Binary Arithmetic Expression are like your number bonds where you learnt during 
 As with all BST questions, this involves doing recursive functions and also applying lots of wishful thinking. Assuming that your evaluating BST function is working and use apply that function again to your left subtree and right subtree.
 
 Looking at the constant ```bae2```, we can visualize the BST as such:
+
 ```
 			[ * ]
                         /   \
@@ -204,11 +209,13 @@ The function ```d``` still takes in the parameter ```(x => x)``` and returns ```
 Since the object ```d``` function is structually similar, this will evaluate into ```true```.
 
 Now think about this function definition for ```d```:
+
 ```
 function d(f) {
 	return f;
 }
 ```
+
 This definition for the function ```d``` does not work since both the LHS and RHS though both will return ```(x => x)```, they are referencing to a different object. Hence, the overall evaluation will be false. From this question, at a glance, only function ```d``` will be referencing to the same object. Hence, your final evaluation has to be whether ```d === d``` which is why the function is defined that way.
 
 ---
