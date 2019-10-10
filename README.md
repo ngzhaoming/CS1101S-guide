@@ -59,7 +59,7 @@ function last_comes_first(xs) {
 
 In this function, I use ```list_ref``` to access the last element. Then I used ```reverse	``` and ```tail	``` to remove the last element, before reversing it back and ```append``` the ```last_element``` that I have extracted previously. Notice that this requires good proficiency in the list library functions which you guys should have been familiar with already! 😃
 
-4. Fibonacci sequence
+4) Fibonacci sequence
 	Fionnacci sequence involving a list. Take note that to find fibonacci, we need the value of the previous two values. Hence, the number of elements in the starting list **MUST** be 2 or more (which is specified in the question). Here is my solution to the question: 
     
 ```
