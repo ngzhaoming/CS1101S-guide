@@ -12,9 +12,9 @@
     map method causes each element in the list to become the original list. 
     Hence, the final result is 
 
-    ```
+```
     list(list(4, 5, 6), list(4, 5, 6), list(4, 5, 6))
-    ```
+```
     
 4)  Trace out the program to form the new list again. Take note that the 
     accumulate function works from the back of the list. So the element 6 will
@@ -35,7 +35,7 @@
     to be structurally different from the original ys list. Hence, we cannot
     use:
     
- 	```
+```
     function append(xs, ys) {
     	if (is_null(xs)) {
         	return ys;
@@ -43,26 +43,26 @@
         	return pair(head(xs), append(tail(xs), ys));
         }
     }
-    ```
+```
 
     Since this will result in ```list ys``` being structually identical. Hence, the only way to do it is to create new pairs from ```list ys``` too so that the final appended list will contains only new pairs.
     
 3) At first glance of this question, I would have used take, drop functions to take the elements till the last element. Then use drop function to drop the last element and append them together. Alternatively, I came up with another solution for this which might be more intuitive for some of you:
 
-	```
+```
     function last_comes_first(xs) {
         const last_element = list_ref(xs, length(xs) - 1);
         const remove_last = tail(reverse(xs));
         return append(list(last_element), reverse(remove_last));
     }
-	```
+```
 
       In this function, I use ```list_ref``` to access the last element. Then I used ```reverse	``` and ```tail	``` to remove the last element, before reversing it back and ```append``` the ```last_element``` that I have extracted previously. Notice that this requires good proficiency in the list library functions which you guys should have been familiar with already! 😃
 
 4. Fibonacci sequence
 	Fionnacci sequence involving a list. Take note that to find fibonacci, we need the value of the previous two values. Hence, the number of elements in the starting list **MUST** be 2 or more (which is specified in the question). Here is my solution to the question: 
     
-    ```
+```
     function fib_list(N) {
         function helper(counter, result) {
             if (counter === N) {
@@ -76,7 +76,7 @@
 
     	return helper(2, list(0, 1));
 	}
-    ```
+```
     
     To explain my thought process, from the given function, it is definite that not enough parameters are given. So in order to add in more parameters into the function, you can either:
 	* Create a helper function
@@ -96,9 +96,9 @@ For order of growth (OOG) take note that Ω is always finding the lower bound, s
 
 3.  For this question, you need to understand the magnitude of each OOG. General rule of thumb is:
 
-	```
+```
      Θ(1) -> Θ(log(n)) -> Θ(n) -> Θ(nlog(n)) -> Θ(n^2) -> Θ(2^n)
-    ```
+```
 
     1. Part 1 ask for Θ, which means the OOG **MUST** be equals to the OOG of ```r(n)```, which is false.
 
@@ -131,12 +131,12 @@ function make_active_list(xs) {
 	2. Map each element in the list with the function first to create a new list with the function applied to each of the element in the list
 	3. Then use accumulate to flatten the list and get the result of the list.
 
-	```
+```
 	function sum(as, f) {
         return accumulate((x, ys) => f(x) + ys, 0,
         build_list(act_length(as), i => head(as(i))));
 	}    
-    ```
+```
     
 	If you were to read the list library functions, ```build_list``` creates a list from 0 to n - 1. Then from this generated list, it will apply a function with each element (kinda like mapping the elements with the function). Using the function ```make_active_list``` and the list that has elements 0 to n - 1, we are able to access all the elements in the active list, and convert it into a list. From there, just apply map and accumulate to get the final sum result.
 
