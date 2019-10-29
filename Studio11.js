@@ -81,6 +81,5 @@ const add_series_pickle = add_streams_pickle;
 function mul_series(s1, s2) {
     return pair(head(s1) * head(s2),
             () => add_series_pickle(
-                stream_tail(scale_stream(head(s2), s1)),
-                            () => mul_series(stream_tail(s2), s1)));
+                stream_tail(scale_stream(head(s2), s1)), mul_series(stream_tail(s2), s1)));
 }
